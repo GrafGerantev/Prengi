@@ -1,0 +1,81 @@
+.deployment
+  max-width: 1920px
+  width: 100%
+  margin: 0 auto
+  min-height: 580px
+  padding-top: 80px
+  &__wrapper
+    width: 100%
+    min-height: 580px
+    height: 100%
+    position: relative
+  &__title
+    max-width: 380px
+    position: absolute
+    top: 79px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 3
+  &__inner
+    width: 100%
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+
+  &-item
+    width: 50%
+    min-height: 580px
+    height: 100%
+    position: relative
+  &-left
+    background: url("../../img/deployment/left.jpg")center (center / cover) no-repeat
+  &-right
+    background: url("../../img/deployment/right.jpg")center (center / cover) no-repeat
+
+  &-content
+    max-width: 484px
+    color: $main-color
+    position: absolute
+    top: 50%
+    &_left
+      right: 82px
+
+      &::after
+        content: ""
+        display: block
+        width: 167px
+        height: 167px
+        background-color: rgba(#00c2f0, .3)
+        position: absolute
+        right: -38px
+        top: -50%
+    &_right
+      left: 82px
+      &::before
+        content: ""
+        display: block
+        width: 167px
+        height: 167px
+        background-color: rgba(#00c2f0, .3)
+        position: absolute
+        left: -38px
+        top: -50%
+    &__title
+      font-size: 30px
+      font-weight: 900
+      line-height: 22px
+      text-transform: uppercase
+      margin-bottom: 16px
+      position: relative
+      z-index: 3
+    &__descr
+      font-size: 18px
+      font-weight: 300
+      line-height: 26px
+
+      position: relative
+      z-index: 3
+    &__title_left
+      text-align: right
+    &__descr_left
+      text-align: right
