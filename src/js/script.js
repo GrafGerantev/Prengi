@@ -15,6 +15,10 @@ $(document).ready(function () {
             $('.header').removeClass('header-fixed');
         }
     });
+
+    /*Слайдер с табами*/
+    const $sliderTabs = $('.slider-tab');
+
     $('.macbook-content').slick({
         speed: 500,
         cssEase: 'linear',
@@ -33,12 +37,25 @@ $(document).ready(function () {
                 }
             }
         ]
-        /*asNavFor: '.slider-tabs',*/
-
     });
-/*    $('.slider-tabs').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.macbook__content',
-    });*/
+
+    $('.macbook-content').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+        $sliderTabs.removeClass('is-active');
+
+        $sliderTabs.eq(nextSlide).addClass('is-active');
+    });
+
+    $sliderTabs.on('click', event => {
+        event.preventDefault();
+
+        const $self = $(event.currentTarget);
+
+        if ($self.hasClass('is-active')) return;
+
+        $sliderTabs.removeClass('is-active');
+
+        $self.addClass('is-active');
+
+        $('.macbook-content').slick('slickGoTo', $self.index());
+    });
 });
